@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>21 Bootstrap Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assest/css/normalize.css">
+    <link rel="stylesheet" href="../assest/bootstrap/css/bootstrap.min.css"></head>
+
+
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/Customer.css">
+    <link rel="stylesheet" href="CSS/Item.css">
+    <link rel="stylesheet" href="CSS/Order.css">
+
+</head>
+<body>
+
+<ul class="nav justify-content-end">
+
+    <img id="sitelogo" src="../assest/img/shopping-cart.png" alt="siteLogo">
+    <h3 id="logohead">Cyber Store</h3>
+    <h4 id="logosub">Online Shopping Site</h4>
+
+    <li class="nav-item">
+        <img src="../assest/img/home_30px.png" alt="homeicon">
+        <a class="nav-link active" aria-current="page" id="home-nav" >Home</a>
+    </li>
+    <li class="nav-item">
+        <img src="../assest/img/people_24px.png" alt="customericon">
+        <a class="nav-link" id="customer-nav">Customer</a>
+    </li>
+    <li class="nav-item">
+        <img src="../assest/img/open_delivered_box_50px.png" alt="itemicon">
+        <a class="nav-link" id="item-nav">Item</a>
+    </li>
+    <li class="nav-item">
+        <img src="../assest/img/buy_24px.png" alt="ordericon">
+        <a class="nav-link" id="order-nav">Order</a>
+    </li>
+</ul>
+
+<!--Menu Section-->
+<section id="menu-section" class="mainsec">
+    <section class="leftsec">
+
+        <h1 class="maintitle">Cyber Store</h1>
+        <h4 class="subtitle">Smarter Shopping, Better Living!</h4>
+        <img src="../assest/img/img.png" class="img-fluid" alt="mainphoto">
+
+    </section>
+    <section class="rightsec">
+
+        <a id="customer-nav1">
+            <div class="custdiv">
+                <img src="../assest/img/img_1.png" alt="Customerimg">
+                <h4 style="color: black">Customer</h4>
+            </div>
+        </a>
+        <a id="item-nav1">
+            <div class="itemdiv">
+                <img src="../assest/img/img_2.png" alt="Itemimg">
+                <h4 style="color: black">Item</h4>
+            </div>
+        </a>
+        <a id="order-nav1">
+            <div class="orderdiv">
+                <img src="../assest/img/img_3.png" alt="Orderimg">
+                <h4 style="color: black">Order</h4>
+            </div>
+        </a>
+
+    </section>
+
+</section>
+
+<!--Customer Section-->
+<div id="customer-section" class="container">
+    <div class="row">
+
+        <!--form-->
+        <div class="col col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+
+            <div class="text-center">
+                <h3>Customer Details</h3>
+            </div>
+
+            <form>
+                <div class="mb-3">
+                    <label for="student-id" class="form-label">Customer ID</label>
+                    <input type="number" class="form-control" id="student-id">
+                </div>
+                <div class="mb-3">
+                    <label for="first-name" class="form-label">Customer Name</label>
+                    <input type="text" class="form-control" id="first-name">
+                </div>
+                <div class="mb-3">
+                    <label for="mobile" class="form-label">Contact No</label>
+                    <input type="tel" class="form-control" id="mobile">
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-control" placeholder="Enter your address" id="address"
+                              style="height: 100px"></textarea>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" value="Male"
+                           id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Male
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" value="Female"
+                           id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Female
+                    </label>
+                </div>
+
+                <div class="mt-3 mb-5" id="student-btns">
+                    <button type="button" class="btn btn-success">Submit</button>
+                    <button type="button" class="btn btn-primary">Update</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="reset" class="btn btn-warning">Reset</button>
+                </div>
+
+            </form>
+
+        </div>
+        <!--tbl-->
+        <div class="col col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer Name</th>
+                    <th>Contact No</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                </tr>
+                </thead>
+                <tbody id="student-tbl-body"></tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<!--Item Section-->
+<div id="item-section" class="container">
+    <div class="row">
+
+        <!--form-->
+        <div class="col col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+
+            <div class="text-center">
+                <h3>Item Details</h3>
+            </div>
+
+            <form>
+                <div class="mb-3">
+                    <label for="item-id" class="form-label">Item Id</label>
+                    <input type="number" class="form-control" id="item-id">
+                </div>
+                <div class="mb-3">
+                    <label for="item-name" class="form-label">Item Name</label>
+                    <input type="text" class="form-control" id="item-name">
+                </div>
+                <div class="mb-3">
+                    <label for="item-des" class="form-label">Item Des</label>
+                    <input type="text" class="form-control" id="item-des">
+                </div>
+                <div class="mb-3">
+                    <label for="item-price" class="form-label">Unit Price</label>
+                    <input type="number" class="form-control" id="item-price">
+                </div>
+                <div class="mb-3">
+                    <label for="stock" class="form-label">Stock</label>
+                    <input type="number" class="form-control" id="stock">
+                </div>
+
+                <div class="mt-3 mb-5" id="item-btns">
+                    <button type="button" class="btn btn-success">Submit</button>
+                    <button type="button" class="btn btn-primary">Update</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="reset" class="btn btn-warning">Reset</button>
+                </div>
+
+            </form>
+
+        </div>
+        <!--tbl-->
+        <div class="col col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+            <table class="table">
+                <thead>
+                <th>Item  ID</th>
+                <th>Item Name</th>
+                <th>Item Description</th>
+                <th>Price</th>
+                <th>Stock</th>
+                </tr>
+                </thead>
+                <tbody id="item-tbl-body"></tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+<!--Order Section-->
+<div id="order-section" class="container">
+    <div class="row">
+
+        <!--form-->
+        <div class="col col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+
+            <div class="text-center">
+                <h3>Order Details</h3>
+            </div>
+
+            <form>
+                <div class="mb-3">
+                    <label for="order-id" class="form-label">Order Id</label>
+                    <input type="number" class="form-control" id="order-id">
+                </div>
+                <div class="mb-3">
+                    <label for="order-name" class="form-label">order Name</label>
+                    <input type="text" class="form-control" id="order-name">
+                </div>
+                <div class="mb-3">
+                    <label for="cus-name" class="form-label">Cus Name</label>
+                    <input type="text" class="form-control" id="cus-name">
+                </div>
+                <div class="mb-3">
+                    <label for="unit-price" class="form-label">Unit Price</label>
+                    <input type="text" class="form-control" id="unit-price">
+                </div>
+                <div class="mb-3">
+                    <label for="qty" class="form-label">Qty</label>
+                    <input type="number" class="form-control" id="qty">
+                </div>
+                <div class="mb-3">
+                    <label for="total" class="form-label">Total</label>
+                    <input type="number" class="form-control" id="total">
+                </div>
+
+
+                <div class="mt-3 mb-5" id="order-btns">
+                    <button type="button" class="btn btn-success">Submit</button>
+                    <button type="button" class="btn btn-primary">Update</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="reset" class="btn btn-warning">Reset</button>
+                </div>
+
+            </form>
+
+        </div>
+        <!--tbl-->
+        <div class="col col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+            <table class="table">
+                <thead>
+                <th>Order  ID</th>
+                <th>Order Name</th>
+                <th>Cus Name</th>
+                <th>unit Price</th>
+                <th>Qty</th>
+                <th>Total</th>
+                </tr>
+                </thead>
+                <tbody id="order-tbl-body"></tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+<!--Link JS Dependencies-->
+<script src="../assest/lib/jquery.min.js"></script>
+<script src="../assest/bootstrap/js/bootstrap.min.js"></script>
+
+<!--Link Controllers-->
+<script type="module" src="controller/MenuController.js"></script>
+<script type="module" src="controller/CustomerController.js"></script>
+<script type="module" src="controller/ItemController.js"></script>
+<script type="module" src="controller/OrderController.js"></script>
+
+
+<!-- alert type -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</body>
+</html>
