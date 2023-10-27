@@ -1,5 +1,5 @@
 import {ItemModel} from "../model/ItemModel.js";
-import {item_db} from "../db/db.js";
+import {item_db, student_db} from "../db/db.js";
 
 var row_index = null;
 
@@ -162,3 +162,15 @@ $("#item-tbl-body").on("click", "tr", function() {
 
 
 });
+$('#item-search').on('input',()=>{
+    let search_term = $('#item-search').val();
+    let results = item_db.filter((item) =>
+        item.item_name.toLowerCase().startsWith(search_term.toLowerCase()) || item.item_des.toLowerCase().startsWith(search_term.toLowerCase()) || item.item_id.toLowerCase().startsWith(search_term.toLowerCase()));
+    console.log(results);
+
+    $('#item-tbl-body').empty();
+    results.map((item, index) => {
+        let tbl_row = `<tr><td>${item.item_id}</td><td>${item.item_name}</td><td>${item.item_des}</td><td>${item.item_price}</td><td>${item.stock}</td></tr>`;
+        $('#item-tbl-body').append(tbl_row);
+    });
+})

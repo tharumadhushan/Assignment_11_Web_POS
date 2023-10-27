@@ -188,3 +188,16 @@ $("#student-tbl-body").on("click", "tr", function() {
     $("#address").val(address);
     $(input[name='flexRadioDefault'][value='${program}']).prop("checked",true);
 });
+
+$('#customer-search').on('input',()=>{
+    let search_term = $('#customer-search').val();
+    let results = student_db.filter((item) =>
+        item.first_name.toLowerCase().startsWith(search_term.toLowerCase()) || item.address.toLowerCase().startsWith(search_term.toLowerCase()) || item.mobile.startsWith(search_term) || item.student_id.toLowerCase().startsWith(search_term.toLowerCase()));
+    console.log(results);
+
+    $('#student-tbl-body').empty();
+    results.map((item, index) => {
+        let tbl_row = `<tr><td>${item.student_id}</td><td>${item.first_name}</td><td>${item.mobile}</td><td>${item.address}</td><td>${item.gender}</td></tr>`;
+        $('#student-tbl-body').append(tbl_row);
+    });
+})

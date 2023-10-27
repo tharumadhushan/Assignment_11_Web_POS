@@ -1,5 +1,5 @@
 import {OrderModel} from "../model/OrderModel.js";
-import {order_db} from "../db/db.js";
+import {item_db, order_db} from "../db/db.js";
 
 var row_index = null;
 
@@ -173,3 +173,15 @@ $("#order-tbl-body").on("click", "tr", function() {
 
 
 });
+$('#order-search').on('input',()=>{
+    let search_term = $('#order-search').val();
+    let results = order_db.filter((item) =>
+        item.order_name.toLowerCase().startsWith(search_term.toLowerCase()) || item.cus_name.toLowerCase().startsWith(search_term.toLowerCase()) || item.order_id.toLowerCase().startsWith(search_term.toLowerCase()));
+    console.log(results);
+
+    $('#order-tbl-body').empty();
+    results.map((item, index) => {
+        let tbl_row = `<tr><td>${item.order_id}</td><td>${item.order_name}</td><td>${item.cus_name}</td><td>${item.unit_price}</td><td>${item.total}</td><td>${item.qty}</td></tr>`;
+        $('#order-tbl-body').append(tbl_row);
+    });
+})
