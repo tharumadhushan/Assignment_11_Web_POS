@@ -174,19 +174,15 @@ $("#student-tbl-body").on("click", "tr", function() {
 
     let student_id = $(this).find(".student_id").text();
     let first_name = $(this).find(".first_name").text();
-    let last_name = $(this).find(".last_name").text();
-    let email = $(this).find(".email").text();
     let mobile = $(this).find(".mobile").text();
     let address = $(this).find(".address").text();
-    let program = $(this).find(".program").text();
+    let gender = $(this).find(".gender").text();
 
     $("#student-id").val(student_id);
     $("#first-name").val(first_name);
-    $("#last-name").val(last_name);
-    $("#email").val(email);
     $("#mobile").val(mobile);
     $("#address").val(address);
-    $(input[name='flexRadioDefault'][value='${program}']).prop("checked",true);
+    $(`input[name='flexRadioDefault'][value='${gender}']`).prop("checked", true);
 });
 
 $('#customer-search').on('input',()=>{
