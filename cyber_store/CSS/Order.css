@@ -38,12 +38,12 @@ ul{
     font-weight: normal;
     font-size: 14px;
 }
-ul>li>img{
+ul>li>img {
     width: 20px;
     height: 20px;
-    position: absolute;
+    position: relative;+
     display: flex;
-    top: 12px;
+    top: 18px;
 }
 ul>li>a{
     margin-left: 5px;

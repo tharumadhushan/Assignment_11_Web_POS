@@ -185,3 +185,36 @@ $('#order-search').on('input',()=>{
         $('#order-tbl-body').append(tbl_row);
     });
 })
+$("#unit-price, #qty").on("input", updateTotal);
+
+function updateTotal() {
+    const unitPrice = parseFloat($("#unit-price").val()) || 0;
+    const quantity = parseInt($("#qty").val()) || 0;
+    const total = (unitPrice * quantity).toFixed(2);
+    $("#total").val(total);
+}
+
+//create amount
+
+function updateRemainingAmount() {
+    const total = parseFloat(document.querySelector("#total").value);
+    const amountGiven = parseFloat(document.querySelector("#amount").value);
+
+    const remainingAmount = amountGiven - total;
+
+    document.querySelector("#remaining").value = remainingAmount;
+}
+
+document.querySelector("#total").addEventListener("input", updateRemainingAmount);
+document.querySelector("#amount").addEventListener("input", updateRemainingAmount);
+
+updateRemainingAmount();
+
+
+
+
+// Call the function to update the date immediately
+updateCurrentDate();
+
+// Optionally, update the date at regular intervals (e.g., every second)
+setInterval(updateCurrentDate, 1000); // Update every second
