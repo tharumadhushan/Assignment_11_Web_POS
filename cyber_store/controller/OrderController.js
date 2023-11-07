@@ -218,3 +218,47 @@ updateCurrentDate();
 
 // Optionally, update the date at regular intervals (e.g., every second)
 setInterval(updateCurrentDate, 1000); // Update every second
+
+
+
+//create discount
+
+function calculateRemainingAndDiscount() {
+    const amountInput = document.getElementById("amount");
+    const totalInput = document.getElementById("total");
+    const discountInput = document.getElementById("discount");
+    const remainingInput = document.getElementById("remaining");
+
+// Add event listeners to the input fields
+    amountInput.addEventListener("input", updateRemaining);
+    totalInput.addEventListener("input", updateRemaining);
+    discountInput.addEventListener("input", updateRemaining);
+
+    function updateRemaining() {
+        // Get the values from the input fields
+        const amountGiven = parseFloat(amountInput.value) || 0;
+        const total = parseFloat(totalInput.value) || 0;
+        const discount = parseFloat(discountInput.value) || 0;
+
+        // Calculate the remaining amount
+        const discountAmount = (discount / 100) * total;
+        const remaining = (amountGiven - total) + discountAmount;
+
+        // Update the "Remaining Amount" field
+        remainingInput.value = remaining.toFixed(2);
+    }
+}
+
+// Function to update the date field
+function updateCurrentDate() {
+    const currentDateElement = document.getElementById('current-date');
+    const currentDate = new Date();
+    currentDateElement.textContent = 'Current Date: ' + currentDate.toDateString();
+}
+
+// Add an event listener to the "Discount" input field to trigger the calculation
+document.getElementById('discount').addEventListener('input', calculateRemainingAndDiscount);
+
+// Update the current date when the page loads
+window.addEventListener('load', updateCurrentDate);
+

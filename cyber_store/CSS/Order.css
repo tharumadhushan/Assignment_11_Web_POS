@@ -3,6 +3,12 @@ body{
     height: 50vw;
     overflow-x: hidden;
 }
+#current-date{
+    position: relative;
+    margin-left: 400px;
+    font-size: 25px;
+    font-style: italic;
+}
 #manage_order{
     width: 100vw;
     height: content-box;
