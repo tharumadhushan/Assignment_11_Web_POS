@@ -10,7 +10,7 @@ $('#home-nav').on('click', () => {
     $('#order-section').css('display', 'none');
 })
 
-$('#customer-nav').on('click', () => {
+$('.customer-nav').on('click', () => {
     $('#menu-section').css('display', 'none');
     $('#customer-section').css('display', 'block');
     $('#item-section').css('display', 'none');
@@ -18,7 +18,7 @@ $('#customer-nav').on('click', () => {
 })
 
 
-$('#item-nav').on('click', () => {
+$('.item-nav').on('click', () => {
     $('#menu-section').css('display', 'none');
     $('#customer-section').css('display', 'none');
     $('#item-section').css('display', 'block');
@@ -26,7 +26,7 @@ $('#item-nav').on('click', () => {
 })
 
 
-$('#order-nav').on('click', () => {
+$('.order-nav').on('click', () => {
     $('#menu-section').css('display', 'none');
     $('#customer-section').css('display', 'none');
     $('#item-section').css('display', 'none');

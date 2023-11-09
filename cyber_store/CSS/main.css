@@ -156,7 +156,11 @@ a>div{
     left: 40px;
     position: relative;
     padding-right: 3%;
+    font-weight: 700;
 }
 .nav-link{
     top: -19px;
+}
+.form-label{
+    font-weight: bold;
 }

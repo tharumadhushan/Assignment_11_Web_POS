@@ -240,6 +240,7 @@ function calculateRemainingAndDiscount() {
         const total = parseFloat(totalInput.value) || 0;
         const discount = parseFloat(discountInput.value) || 0;
 
+
         // Calculate the remaining amount
         const discountAmount = (discount / 100) * total;
         const remaining = (amountGiven - total) + discountAmount;
@@ -253,7 +254,7 @@ function calculateRemainingAndDiscount() {
 function updateCurrentDate() {
     const currentDateElement = document.getElementById('current-date');
     const currentDate = new Date();
-    currentDateElement.textContent = 'Current Date: ' + currentDate.toDateString();
+    currentDateElement.textContent = currentDate.toDateString();
 }
 
 // Add an event listener to the "Discount" input field to trigger the calculation

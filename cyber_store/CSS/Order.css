@@ -5,7 +5,7 @@ body{
 }
 #current-date{
     position: relative;
-    margin-left: 400px;
+    /*margin-left: 400px;*/
     font-size: 25px;
     font-style: italic;
 }
@@ -127,4 +127,32 @@ ul>li{
 .formdiv>form>div>input{
     width: 20vw;
     margin: 5px;
+}
+.order-row{
+    background: rgba(255, 255, 255, 0.71);
+    border-radius: 10px;
+}
+.order-sec{
+    width: 100%;
+    min-height: 36vw;
+    background: linear-gradient(180deg, rgb(0, 151, 236, 100%),rgb(255, 255, 255, 100%));
+}
+#discount{
+    color: #17b917;
+    font-size: 23px;
+    width: 75px;
+    border-radius: 30px;
+}
+#total{
+    color: #0d6efd;
+    font-size: 26px;
+    border-radius: 30px;
+    border: none;
+    width: 300px;
+    background: white;
+}
+#remaining{
+    font-size: 40px;
+    color: orange;
+    border: none;
 }

@@ -115,3 +115,12 @@ ul>li{
     right: 0;
     margin: auto;
 }
+.item-row{
+    background: rgba(255, 255, 255, 0.71);
+    border-radius: 10px;
+}
+.item-sec{
+    width: 100%;
+    min-height: 36vw;
+    background: linear-gradient(180deg, rgb(0, 151, 236, 100%),rgb(255, 255, 255, 100%));
+}
