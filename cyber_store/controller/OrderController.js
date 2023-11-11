@@ -21,71 +21,50 @@ const loadOrderData = () => {
 };
 
 // submit
+
 $("#order-btns>button[type='button']").eq(0).on("click", () => {
     let order_id = $("#order-id").val();
     let order_name = $("#order-name").val();
     let cus_name = $("#cus-name").val();
-    let unit_price = $("#unit-price").val();
-    let qty = $("#qty").val();
-    let total = $("#total").val();
+    let unit_price = parseFloat($("#unit-price").val()) || 0;
+    let qty = parseInt($("#qty").val()) || 0;
+    let total = (unit_price * qty).toFixed(2);
 
-    if (order_id){
-        if (order_name){
-            if (cus_name){
-                if (unit_price){
-                    if (qty){
-                        if (total){
+    if (order_id && order_name && cus_name && unit_price && qty && total) {
+        // Check if there is enough stock for the order
+        let itemIndex = item_db.findIndex(item => item.item_name === order_name);
 
-                            let student_obj = new OrderModel(order_id,order_name,cus_name,unit_price,qty,total);
+        if (itemIndex !== -1 && item_db[itemIndex].stock >= qty) {
+            // Decrease the stock of the corresponding item
+            item_db[itemIndex].stock -= qty;
 
-                            // save in the db
-                            order_db.push(student_obj);
+            let student_obj = new OrderModel(order_id, order_name, cus_name, unit_price, qty, total);
 
-                            // clear();
-                            $("#order-btns>button[type='reset']").click();
+            // Save the order in the db
+            order_db.push(student_obj);
 
-                            // load student data
-                            loadOrderData();
-                        }else {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Invalid Input',
-                                text: 'Please enter total!'
-                            })
-                        }
-                    }else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Invalid Input',
-                            text: 'Please enter qty!'
-                        })
-                    }
-                }else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Invalid Input',
-                        text: 'Please enter unit price!'})
-                }
-            }else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Invalid Input',
-                    text: 'Please enter cus name!'})
-            }
-        }else {
+            // Clear the form
+            $("#order-btns>button[type='reset']").click();
+
+            // Load order data
+            loadOrderData();
+
+            // Update item data
+            loadItemData();
+        } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Invalid Input',
-                text: 'Please enter Order name!'
-            })
+                text: 'Not enough stock for the order!'
+            });
         }
-    }else {
+    } else {
         Swal.fire({
             icon: 'error',
             title: 'Invalid Input',
-            text: 'Please enter orderId!'})
+            text: 'Please fill in all required fields!'
+        });
     }
-
 });
 
 // update
@@ -263,3 +242,32 @@ document.getElementById('discount').addEventListener('input', calculateRemaining
 // Update the current date when the page loads
 window.addEventListener('load', updateCurrentDate);
 
+//auto genarate order id
+document.addEventListener('DOMContentLoaded', function () {
+    const orderForm = document.querySelector('form');
+    const orderIdInput = document.getElementById('order-id');
+    let orderIdCounter = 1; // Initialize the counter
+
+    // Function to generate the next Order ID
+    function generateNextOrderId() {
+        const nextOrderId = `O00${orderIdCounter}`;
+        orderIdCounter++;
+        return nextOrderId;
+    }
+
+    // Function to handle the "Submit" button click
+    function addOrder() {
+        // Generate the next Order ID
+        const newOrderId = generateNextOrderId();
+        orderIdInput.value = newOrderId;
+
+        // ... (rest of your code to handle other form elements and table)
+    }
+
+    // Set the initial order ID
+    orderIdInput.value = generateNextOrderId();
+
+    // Attach the function to the "Submit" button
+    const submitButton = document.querySelector('#order-btns button.btn-success');
+    submitButton.addEventListener('click', addOrder);
+});
