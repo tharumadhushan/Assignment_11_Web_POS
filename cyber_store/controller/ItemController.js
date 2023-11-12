@@ -174,3 +174,32 @@ $('#item-search').on('input',()=>{
         $('#item-tbl-body').append(tbl_row);
     });
 })
+//auto genarate order id
+document.addEventListener('DOMContentLoaded', function () {
+    const orderForm = document.querySelector('form');
+    const itemIdInput = document.getElementById('item-id');
+    let itemIdCounter = 1; // Initialize the counter
+
+    // Function to generate the next Order ID
+    function generateNextItemId() {
+        const nextItemId = `I00${itemIdCounter}`;
+        itemIdCounter++;
+        return nextItemId;
+    }
+
+    // Function to handle the "Submit" button click
+    function addItem() {
+        // Generate the next Order ID
+        const newItemId = generateNextItemId();
+        itemIdInput.value = newItemId;
+
+        // ... (rest of your code to handle other form elements and table)
+    }
+
+    // Set the initial order ID
+    itemIdInput.value = generateNextItemId();
+
+    // Attach the function to the "Submit" button
+    const submitButton = document.querySelector('#item-btns button.btn-success');
+    submitButton.addEventListener('click', addItem);
+});
