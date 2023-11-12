@@ -197,3 +197,32 @@ $('#customer-search').on('input',()=>{
         $('#student-tbl-body').append(tbl_row);
     });
 })
+
+document.addEventListener('DOMContentLoaded', function () {
+    const customerForm = document.querySelector('form');
+    const custIdInput = document.getElementById('student-id');
+    let custIdCounter = 1; // Initialize the counter
+
+    // Function to generate the next Order ID
+    function generateNextCustId() {
+        const nextCustId = `C00${custIdCounter}`;
+        custIdCounter++;
+        return nextCustId;
+    }
+
+    // Function to handle the "Submit" button click
+    function addCust() {
+        // Generate the next Order ID
+        const newCustId = generateNextCustId();
+        custIdInput.value = newCustId;
+
+        // ... (rest of your code to handle other form elements and table)
+    }
+
+    // Set the initial order ID
+    custIdInput.value = generateNextCustId();
+
+    // Attach the function to the "Submit" button
+    const submitButton = document.querySelector('#student-btns button.btn-success');
+    submitButton.addEventListener('click', addCust);
+});

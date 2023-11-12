@@ -176,7 +176,7 @@ $('#item-search').on('input',()=>{
 })
 //auto genarate order id
 document.addEventListener('DOMContentLoaded', function () {
-    const orderForm = document.querySelector('form');
+    const itenForm = document.querySelector('form');
     const itemIdInput = document.getElementById('item-id');
     let itemIdCounter = 1; // Initialize the counter
 
